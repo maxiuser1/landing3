@@ -1,9 +1,10 @@
 import { CosmosClient } from '@azure/cosmos';
+import 'dotenv/config';
 
 export async function GET() {
-	const client = new CosmosClient(
-		'AccountEndpoint=https://encuestasdb.documents.azure.com:443/;AccountKey=jbUfTnFcRnprj1rKnuMxQXBsiJr4ph2MTxdyDWhKYHNZe0z0Et6ecKIkKnVOcY8uaWBTiPDG3BjBetDtj7lfpA=='
-	);
+	const cs: string = process.env.DATABASE_URL || '';
+	console.log('cs', cs);
+	const client = new CosmosClient(cs);
 
 	const database = await client.database('quehaydb');
 	const container = await database.container('parametros');
