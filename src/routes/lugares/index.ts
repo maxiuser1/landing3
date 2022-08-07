@@ -1,17 +1,9 @@
 import { CosmosClient } from '@azure/cosmos';
+import type { RequestHandler } from '@sveltejs/kit';
 import 'dotenv/config';
 
-export async function GET() {
-	const cs: string = process.env.DATABASE_URL || '';
-	console.log('cs', cs);
-	const client = new CosmosClient(cs);
-
-	const database = await client.database('quehaydb');
-	const container = await database.container('parametros');
-
-	const { resource: result } = await container
-		.item('280100cd-c1eb-4852-aee0-e0dd41118d57', 'lugares')
-		.read();
+export const GET: RequestHandler = async ({ locals: { lugaresRepo } }) => {
+	const result = await lugaresRepo.getAll();
 
 	if (result) {
 		return {
@@ -24,4 +16,4 @@ export async function GET() {
 	return {
 		status: 404
 	};
-}
+};
