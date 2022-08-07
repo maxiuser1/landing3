@@ -2,7 +2,7 @@ import { CosmosClient } from '@azure/cosmos';
 import 'dotenv/config';
 
 export async function GET() {
-	const cs: string = import.meta.env.VITE_DATABASE_URL || '';
+	const cs: string = process.env.DATABASE_URL || '';
 	console.log('cs', cs);
 	const client = new CosmosClient(cs);
 

@@ -1,5 +1,5 @@
 <script lang="ts">
-	export let lugares;
+	export let lugares: any;
 </script>
 
 <div>
