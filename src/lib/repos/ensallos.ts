@@ -6,6 +6,7 @@ export class EnsallosRepo implements App.EnsallosRepoInterface {
 	constructor(cn: string) {
 		this.cn = cn;
 	}
+
 	findBySlug = async (slug: string): Promise<App.Ensallo | null> => {
 		const client = new CosmosClient(this.cn);
 		const database = await client.database('quehaydb');
@@ -17,7 +18,7 @@ export class EnsallosRepo implements App.EnsallosRepoInterface {
 		};
 
 		const { resources: items } = await container.items.query<App.Ensallo>(querySpec).fetchAll();
-		console.log('items', items, slug);
-		return items[0];
+
+		return items.length > 0 ? items[0] : null;
 	};
 }

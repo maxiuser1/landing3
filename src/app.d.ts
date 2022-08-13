@@ -13,6 +13,15 @@ declare namespace App {
 		};
 	};
 
+	type Evento = {
+		id: string;
+		nombre: string;
+		artista: string;
+		banner: string;
+		lugar: string;
+		slug: string;
+	};
+
 	type Lugar = {
 		tipo: string;
 		values: {
@@ -26,7 +35,7 @@ declare namespace App {
 	}
 
 	interface EventosRepoInterface {
-		getAll(): Promise<Lugar | undefined>;
+		getEventosDestacados(): Promise<Array<Evento> | undefined>;
 	}
 
 	interface EnsallosRepoInterface {
