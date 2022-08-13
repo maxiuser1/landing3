@@ -7,6 +7,10 @@
 <Carousel {eventos} />
 <SearchBox />
 <Sections {eventos} />
+<div class="divider" />
 
 <style lang="scss">
+	.divider {
+		display: none;
+	}
 </style>

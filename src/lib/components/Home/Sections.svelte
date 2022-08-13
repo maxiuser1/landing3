@@ -13,7 +13,7 @@
 	</div>
 </section>
 
-<section>
+<section class="final">
 	<div class="container">
 		<a href="/" class="titulo">Nuevos</a>
 		<Cards {eventos} />
@@ -21,7 +21,17 @@
 </section>
 
 <style lang="scss">
-	.destacados,
+	.final {
+		margin-bottom: 80px;
+	}
+
+	.destacados {
+		margin-top: 32px;
+		@include breakpoint($md) {
+			margin-top: 60px;
+		}
+	}
+
 	.botonera {
 		width: 100%;
 		text-align: center;
@@ -37,16 +47,6 @@
 		border: 1px solid #d30ed1;
 		border-radius: 4px;
 	}
-
-	// .last {
-	// 	margin: 80px 0;
-	// 	background-image: url('https://res.cloudinary.com/maxitech/image/upload/v1655518696/ticketera/banners/indiemusic_hfo750.jpg');
-	// 	background-repeat: no-repeat;
-	// 	background-size: cover;
-	// 	align-self: center;
-	// 	width: 100%;
-	// 	height: 200px;
-	// }
 
 	.titulo {
 		text-decoration: none;
