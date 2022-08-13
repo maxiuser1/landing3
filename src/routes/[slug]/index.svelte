@@ -1,13 +1,10 @@
 <script lang="ts">
-	export let lugares: any;
+	export let ensallo: App.Ensallo;
 </script>
 
 <div>
-	{#if lugares}
-		{#each lugares.values as valor}
-			{valor.codigo}
-		{/each}
-	{/if}
+	<h1>hola</h1>
+	{ensallo.id}
 </div>
 
 <style lang="scss">

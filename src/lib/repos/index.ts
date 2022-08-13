@@ -1,0 +1,1 @@
+export { EnsallosRepo } from './ensallos';
