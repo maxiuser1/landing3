@@ -6,8 +6,6 @@ export const secciones = (node: any, props: Array<App.Precio>) => {
 		const pseudoId = each.id.split('-')[0];
 		props.forEach((cadaPrecio: App.Precio) => {
 			if (cadaPrecio.tipo.toLowerCase() == pseudoId.toLowerCase()) {
-				console.log('each', each);
-
 				let tooltipComp: SvelteComponent;
 				const prevcolor = each.getAttribute('fill');
 
@@ -18,7 +16,7 @@ export const secciones = (node: any, props: Array<App.Precio>) => {
 						tipo: cadaPrecio.tipo,
 						numerado: cadaPrecio.numerado
 					};
-					const zonned = new CustomEvent<App.Seccion>('zonned', {
+					const zonned = new CustomEvent('zonned', {
 						detail: seccioneSeleccionada
 					});
 

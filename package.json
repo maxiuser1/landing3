@@ -14,6 +14,7 @@
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "next",
 		"@sveltejs/kit": "next",
+		"@types/lodash": "^4.14.182",
 		"@vercel/node": "^2.5.4",
 		"prettier": "^2.6.2",
 		"prettier-plugin-svelte": "^2.7.0",
@@ -28,6 +29,9 @@
 	"type": "module",
 	"dependencies": {
 		"@azure/cosmos": "^3.16.3",
-		"dotenv": "^16.0.1"
+		"dotenv": "^16.0.1",
+		"firebase": "^9.9.2",
+		"lodash": "^4.17.21",
+		"yup": "^0.32.11"
 	}
 }

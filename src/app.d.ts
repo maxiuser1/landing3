@@ -37,14 +37,25 @@ declare namespace App {
 		tope?: number;
 		promo?: string;
 		numerado: boolean;
-		filas: Array<{
-			id: number;
-			sits: Array<{
-				id: number;
-				s: number;
-			}>;
-		}>;
+		filas: Array<Fila>;
 		total: number;
+	};
+
+	type Sentado = {
+		base?: number;
+		tipo?: string;
+		fila: number;
+		asiento: number;
+		cantidad: number;
+		numerado?: boolean;
+	};
+
+	type Fila = {
+		id: number;
+		sits: Array<{
+			id: number;
+			s: number;
+		}>;
 	};
 
 	type Ensallo = {

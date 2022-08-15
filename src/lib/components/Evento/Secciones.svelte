@@ -3,29 +3,16 @@
 	import { Radio } from '$lib/icons';
 
 	import { compraData } from '$lib/stores/compra';
-	import dayjs from '$lib/utils/days/day';
-	import { append } from 'svelte/internal';
+	import { append, createEventDispatcher } from 'svelte/internal';
 	import { Soles } from '../Shared';
 	import { secciones } from './secciones';
 
 	export let evento: App.Ensallo;
 
-	const seleccionar = (ev: CustomEvent<App.Seccion>): void => {
-		const zonaSeleccionada: App.Seccion = ev.detail;
-		compraData.update((current) => ({
-			...current,
-			zona: {
-				tipo: zonaSeleccionada.tipo,
-				base: zonaSeleccionada.base,
-				numerado: zonaSeleccionada.numerado
-			}
-		}));
+	const dispatch = createEventDispatcher();
 
-		if (zonaSeleccionada.numerado) {
-			goto(`../${evento.general?.slug}/lugar`);
-		} else {
-			goto(`../${evento.general?.slug}/reserva`);
-		}
+	const seleccionar = (ev: CustomEvent<App.Seccion>): void => {
+		dispatch('clickeado', ev);
 	};
 </script>
 
@@ -68,7 +55,7 @@
 			<h4>
 				{#if evento.fechas}
 					{#each evento.fechas as fecha}
-						{dayjs(fecha.dia).format('ddd D MMMM')}
+						{fecha.dia}
 					{/each}
 				{/if}
 			</h4>
